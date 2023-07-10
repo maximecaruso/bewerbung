@@ -37,14 +37,16 @@ update();
 function update(){
    
     ctx.clearRect(0,0,4000,4000);
-  plane1.update();
- plane2.update();
+ // plane1.update();
+ /*plane2.update();
   plane3.update();
   plane4.update();
   plane5.update();
   plane6.update();
-  plane7.update();
-    setTimeout(update,20);
+  plane7.update();*/
+  ctx.fillStyle ="red";
+  //ctx.fillRect(plane1.xP,plane1.yP,300,150);
+ //   setTimeout(update,20);
 }
 
 
@@ -87,13 +89,15 @@ class PaperPlaneR {
     }
   }
 
+
   function paperInteraction(e){
     var cRect = c.getBoundingClientRect();        // Gets CSS pos, and width/height
-    var canvasX = Math.round(e.clientX - cRect.left);  // Subtract the 'left' of the canvas 
-    var canvasY = Math.round(e.clientY - cRect.top);   // from the X/Y positions to make  
-
+    var canvasX =e.clientX - cRect.left;  // Subtract the 'left' of the canvas 
+    var canvasY =e.clientY - cRect.top;   // from the X/Y positions to make  
+  
    if(canvasX > plane1.xP && canvasX < plane1.xP+300 && canvasY > plane1.yP && canvasY < plane1.yP+150){
      plane1.changeHover();
+     
    }
    else{
     plane1.changeBack();
